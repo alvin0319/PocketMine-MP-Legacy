@@ -21,32 +21,21 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\crafting\json;
-use function count;
+namespace pocketmine\world\biome\model;
 
-final class ItemStackData implements \JsonSerializable{
+/**
+ * Model for loading color data from JSON.
+ */
+final class ColorData{
+	/** @required */
+	public int $r;
 
 	/** @required */
-	public string $name;
+	public int $g;
 
-	public int $count;
-	public string $block_states;
-	public int $meta;
-	public string $nbt;
-	/** @var string[] */
-	public array $can_place_on;
-	/** @var string[] */
-	public array $can_destroy;
+	/** @required */
+	public int $b;
 
-	public function __construct(string $name){
-		$this->name = $name;
-	}
-
-	public function jsonSerialize() : string|array{
-		$result = (array) $this;
-		if(count($result) === 1 && isset($result["name"])){
-			return $this->name;
-		}
-		return $result;
-	}
+	/** @required */
+	public int $a;
 }

@@ -52,7 +52,7 @@ class BedrockWorldData extends BaseNbtWorldData{
 	 * actually support worlds from 1.18.10 yet, but due to an old stupid bug, all worlds created by PM will report this
 	 * version.
 	 */
-	public const CURRENT_STORAGE_NETWORK_VERSION = 486; // 1.18.10
+	public const CURRENT_STORAGE_NETWORK_VERSION = 800; // 1.21.80
 
 	public const GENERATOR_LIMITED = 0;
 	public const GENERATOR_INFINITE = 1;

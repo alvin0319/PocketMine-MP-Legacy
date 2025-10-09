@@ -33,11 +33,10 @@
       "composer-runtime-api": "^2.0",
       "adhocore/json-comment": "~1.2.0",
       "fgrosse/phpasn1": "~2.5.0",
-      "pocketmine/netresearch-jsonmapper": "~v4.2.1000",
-      "pocketmine/bedrock-block-upgrade-schema": "~5.1.0+bedrock-1.21.60",
-      "pocketmine/bedrock-data": "~4.1.0+bedrock-1.21.70",
-      "pocketmine/bedrock-item-upgrade-schema": "~1.14.0+bedrock-1.21.50",
-      "pocketmine/bedrock-protocol": "~37.0.0+bedrock-1.21.70",
+      "pocketmine/bedrock-block-upgrade-schema": "5.2.0+bedrock-1.21.110",
+      "pocketmine/bedrock-data": "dev-master#7484fe3c3d7949fd48cc520add4f7eeebc4ba4af",
+      "pocketmine/bedrock-item-upgrade-schema": "1.16.0+bedrock-1.21.110",
+      "pocketmine/bedrock-protocol": "1.21.111.x-dev",
       "pocketmine/binaryutils": "^0.2.1",
       "pocketmine/callback-validator": "^1.0.2",
       "pocketmine/classloader": "^0.2.0",
@@ -48,6 +47,7 @@
       "pocketmine/log-pthreads": "^0.4.0",
       "pocketmine/math": "^0.4.0",
       "pocketmine/nbt": "~1.0.0",
+      "pocketmine/netresearch-jsonmapper": "~v4.2.1000",
       "pocketmine/raklib": "^0.14.2",
       "pocketmine/raklib-ipc": "^0.1.0",
       "pocketmine/snooze": "^0.3.0",
@@ -93,5 +93,11 @@
       "update-translation-apis": [
          "@php build/generate-known-translation-apis.php"
       ]
-   }
+   },
+   "repositories": [
+      {
+         "type": "vcs",
+         "url": "https://github.com/benedikt05/bedrockprotocol"
+      }
+   ]
 }

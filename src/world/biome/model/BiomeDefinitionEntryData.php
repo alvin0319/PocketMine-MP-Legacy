@@ -21,32 +21,40 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\crafting\json;
-use function count;
+namespace pocketmine\world\biome\model;
 
-final class ItemStackData implements \JsonSerializable{
+/**
+ * Model for loading biome definition entries data from JSON.
+ */
+final class BiomeDefinitionEntryData{
+	/** @required */
+	public int $id;
 
 	/** @required */
-	public string $name;
+	public float $temperature;
 
-	public int $count;
-	public string $block_states;
-	public int $meta;
-	public string $nbt;
-	/** @var string[] */
-	public array $can_place_on;
-	/** @var string[] */
-	public array $can_destroy;
+	/** @required */
+	public float $downfall;
 
-	public function __construct(string $name){
-		$this->name = $name;
-	}
+	/** @required */
+	public float $foliageSnow;
 
-	public function jsonSerialize() : string|array{
-		$result = (array) $this;
-		if(count($result) === 1 && isset($result["name"])){
-			return $this->name;
-		}
-		return $result;
-	}
+	/** @required */
+	public float $depth;
+
+	/** @required */
+	public float $scale;
+
+	/** @required */
+	public ColorData $mapWaterColour;
+
+	/** @required */
+	public bool $rain;
+
+	/**
+	 * @required
+	 * @var string[]
+	 * @phpstan-var list<string>
+	 */
+	public array $tags;
 }

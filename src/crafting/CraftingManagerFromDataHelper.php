@@ -52,7 +52,7 @@ final class CraftingManagerFromDataHelper{
 		}
 
 		$mapper = new \JsonMapper();
-		$mapper->bStrictObjectTypeChecking = true;
+		$mapper->bStrictObjectTypeChecking = false;
 		$mapper->bExceptionOnUndefinedProperty = true;
 		$mapper->bExceptionOnMissingData = true;
 

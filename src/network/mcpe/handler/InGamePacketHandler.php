@@ -767,11 +767,7 @@ class InGamePacketHandler extends PacketHandler{
 
 		return false;
 	}
-
-	public function handlePlayerInput(PlayerInputPacket $packet) : bool{
-		return false; //TODO
-	}
-
+	
 	public function handleSetPlayerGameType(SetPlayerGameTypePacket $packet) : bool{
 		$gameMode = TypeConverter::getInstance()->protocolGameModeToCore($packet->gamemode);
 		if($gameMode === null || !$gameMode->equals($this->player->getGamemode())){

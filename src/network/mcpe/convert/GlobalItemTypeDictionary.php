@@ -39,6 +39,7 @@ use function is_bool;
 use function is_int;
 use function is_string;
 use function json_decode;
+use const pocketmine\RESOURCE_PATH;
 
 final class GlobalItemTypeDictionary{
 	use SingletonTrait;
@@ -55,10 +56,10 @@ final class GlobalItemTypeDictionary{
 
 		$params = [];
 		foreach($table as $name => $entry){
-			if(!is_array($entry) || !is_string($name) || !isset($entry["component_based"], $entry["runtime_id"], $entry["version"])/* || !array_key_exists("nbt", $entry)*/ || !is_bool($entry["component_based"]) || !is_int($entry["runtime_id"]) || !is_int($entry["version"]) /*|| !(is_string($nbt = $entry["nbt"]) || $nbt === null)*/){
+			if(!is_array($entry) || !is_string($name) || !isset($entry["component_based"], $entry["runtime_id"], $entry["version"]) || !is_bool($entry["component_based"]) || !is_int($entry["runtime_id"]) || !is_int($entry["version"]) || !(is_string($nbt = $entry["component_nbt"] ?? null) || $nbt === null)){
 				throw new AssumptionFailedError("Invalid item list format");
 			}
-			$params[] = new ItemTypeEntry($name, $entry["runtime_id"], $entry["component_based"], $entry["version"], /*$nbt === null ? $emptyNBT : new CacheableNbt($nbtSerializer->read(Utils::assumeNotFalse(base64_decode($nbt, true)))->mustGetCompoundTag())*/$emptyNBT);
+			$params[] = new ItemTypeEntry($name, $entry["runtime_id"], $entry["component_based"], $entry["version"], $nbt === null ? $emptyNBT : new CacheableNbt($nbtSerializer->read(Utils::assumeNotFalse(base64_decode($nbt, true)))->mustGetCompoundTag()));
 		}
 		return new self(new ItemTypeDictionary($params));
 	}
